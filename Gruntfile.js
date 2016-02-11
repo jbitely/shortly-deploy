@@ -7,7 +7,8 @@ module.exports = function(grunt) {
         separator: ';',
       },
       js: {
-        src: ['public/lib/jquery.js', 'public/lib/underscore.js','public/lib/backbone.js','public/lib/handlebars.js', 'public/client/*.js'],
+        // src: ['public/lib/jquery.js', 'public/lib/underscore.js','public/lib/backbone.js','public/lib/handlebars.js', 'public/client/*.js'],
+        src: 'public/client/*.js',
         dest: 'public/dist/built.js'
       },
       css: {
@@ -27,7 +28,7 @@ module.exports = function(grunt) {
 
     nodemon: {
       dev: {
-        script: 'server.js'
+        script: 'index.js'
       }
     },
 
@@ -100,6 +101,7 @@ module.exports = function(grunt) {
          grunt: true,
          args: 'nodemon'
     });
+    console.log("PORT: ", target);
     nodemon.stdout.pipe(process.stdout);
     nodemon.stderr.pipe(process.stderr);
 
