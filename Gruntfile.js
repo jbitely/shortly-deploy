@@ -81,6 +81,7 @@ module.exports = function(grunt) {
 
     shell: {
       prodServer: {
+        command: 'git push heroku master'
       }
     },
   });
@@ -128,11 +129,14 @@ module.exports = function(grunt) {
     // uglify
 
     ////////add css min///////
+    'cssmin',
     'uglify'
   ]);
 
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
+      console.log("Pushing to production!"),
+      'shell'
       // add your production server task here
       // upload to heroku
     } else {
